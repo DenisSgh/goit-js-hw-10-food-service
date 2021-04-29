@@ -1,10 +1,11 @@
-import menuCards from './templates/menuCards.hbs';
-import menu from './menu.json';
+import menuCardsTmp from './templates/menuCards.hbs';
+import menuList from './menu.json';
 import './styles.css';
 
 const refs = {
   bodyRef: document.querySelector('body'),
   switchRef: document.querySelector('#theme-switch-toggle'),
+  menuRef: document.querySelector('.js-menu'),
 };
 
 const Theme = {
@@ -14,8 +15,7 @@ const Theme = {
 
 onCheckedTheme();
 
-menuCards(menu);
-
+refs.menuRef.insertAdjacentHTML('beforeend', menuCardsTmp(menuList));
 refs.switchRef.addEventListener('change', onSwitchPositionChanged);
 
 function onSwitchPositionChanged() {
