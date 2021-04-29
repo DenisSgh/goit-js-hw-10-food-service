@@ -15,7 +15,7 @@ const Theme = {
 
 onCheckedTheme();
 
-// refs.menuRef.insertAdjacentHTML('beforeend', menuCardsTmp(menuList));
+refs.menuRef.insertAdjacentHTML('beforeend', menuCardsTmp(menuList));
 refs.switchRef.addEventListener('change', onSwitchPositionChanged);
 
 function onSwitchPositionChanged() {
