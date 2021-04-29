@@ -1,3 +1,7 @@
+import menuCards from './templates/menuCards.hbs';
+import menu from './menu.json';
+import './styles.css';
+
 const refs = {
   bodyRef: document.querySelector('body'),
   switchRef: document.querySelector('#theme-switch-toggle'),
@@ -10,6 +14,8 @@ const Theme = {
 
 onCheckedTheme();
 
+menuCards(menu);
+
 refs.switchRef.addEventListener('change', onSwitchPositionChanged);
 
 function onSwitchPositionChanged() {
@@ -17,8 +23,7 @@ function onSwitchPositionChanged() {
     ? refs.bodyRef.classList.replace(Theme.LIGHT, Theme.DARK)
     : refs.bodyRef.classList.replace(Theme.DARK, Theme.LIGHT);
 
-  let bodyColorTheme = refs.bodyRef.classList.value;
-  localStorage.setItem('bodyColorTheme', bodyColorTheme);
+  localStorage.setItem('bodyColorTheme', refs.bodyRef.classList.value);
 }
 
 function onCheckedTheme() {
